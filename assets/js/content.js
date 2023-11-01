@@ -40,33 +40,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // smallProjects data
 const smallProjectsData = [
-  {
-    title: "Hoverable Sidebar Menu",
-    description: "Hoverable Sidebar Menu using HTML CSS and JavaScript.",
-    stack: "HTML CSS JAVASCRIPT",
-    link1: "https://github.com/xiaotiaann/Hoverable-Sidebar-Menu.git",
-    link2: "https://youtube.com/shorts/2CmYomNWKbg?feature=share",
-  },
+
   {
     title: "Navigation Bar with Indicator",
     description: "Navigation Bar with Indicator using HTML CSS and JavaScript.",
     stack: "HTML CSS JAVASCRIPT",
-    link1: "https://github.com/xiaotiaann/Navigation-Bar-with-Indicator.git",
-    link2: "https://youtube.com/shorts/LLpJvWk0CJA?feature=share",
+    link1: "https://github.com/gtkrshnaaa/Navigation-Bar-with-Indicator.git",
+    link2: "https://gtkrshnaaa.github.io/Navigation-Bar-with-Indicator/",
   },
   {
     title: "QR Code Generator",
     description: "QR Code Generator using HTML CSS and JavaScript.",
     stack: "HTML CSS JAVASCRIPT",
-    link1: "https://github.com/xiaotiaann/QR-Code-Generator.git",
-    link2: "https://youtube.com/shorts/7JLe_VordTM?feature=share",
+    link1: "https://github.com/gtkrshnaaa/QR-Code-Generator.git",
+    link2: "https://gtkrshnaaa.github.io/QR-Code-Generator/",
   },
   {
     title: "Drag and Drop Image",
     description: "Drag and Drop Image using HTML CSS and JavaScript.",
     stack: "HTML CSS JAVASCRIPT",
-    link1: "https://github.com/xiaotiaann/Drag-and-Drop.git",
-    link2: "https://youtube.com/shorts/PqKkMfd9FsQ?feature=share",
+    link1: "https://github.com/gtkrshnaaa/Drag-and-Drop-Image.git",
+    link2: "https://gtkrshnaaa.github.io/Drag-and-Drop-Image/",
   },
   // Tambahkan proyek lainnya seperti di atas
 ];
