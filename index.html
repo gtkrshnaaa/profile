@@ -4,8 +4,287 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+
+    <!-- Header -->
+    <header class="flex items-center justify-between max-w-6xl mx-auto px-6 py-4 shadow-sm relative">
+        <!-- Logo -->
+        <div class="text-lg font-medium">
+        <span class="text-gray-400">show</span><span class="font-bold text-black">casy.</span>
+        </div>
+
+        <!-- Right Buttons -->
+        <div class="flex items-center space-x-3">
+        <!-- Let's Talk Button -->
+        <button class="flex items-center gap-1 border border-black px-4 py-2 rounded-full text-sm hover:bg-black hover:text-white transition">
+            Let’s Talk
+            <span>→</span>
+        </button>
+
+        <!-- Menu Button -->
+        <button id="menu-btn" class="w-9 h-9 flex items-center justify-center border border-black rounded-full text-xl">
+            ☰
+        </button>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div id="dropdown-menu" class="absolute right-6 top-16 bg-white border border-gray-200 shadow-md rounded-md w-40 hidden z-10">
+        <ul class="flex flex-col text-sm">
+            <li><a href="#" class="px-4 py-2 hover:bg-gray-100 block">Home</a></li>
+            <li><a href="#" class="px-4 py-2 hover:bg-gray-100 block">Portfolio</a></li>
+            <li><a href="#" class="px-4 py-2 hover:bg-gray-100 block">About</a></li>
+            <li><a href="#" class="px-4 py-2 hover:bg-gray-100 block">Contact</a></li>
+        </ul>
+        </div>
+    </header>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Optional: klik di luar buat nutup menu
+        document.addEventListener('click', (e) => {
+        if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+        }
+        });
+    </script>
+
+
+
+    <!-- HERO SECTION ====================================================================================== -->
+    <section class="px-6 py-20 max-w-6xl mx-auto">
+        <!-- Title -->
+        <h1 class="text-5xl sm:text-6xl font-black leading-tight text-black">
+            I’m a visual designer<br>
+            with <span class="text-black">passion to create</span><br>
+            <span class="text-gray-400">a great experiences</span>
+        </h1>
+
+        <!-- Description -->
+        <div class="mt-6 max-w-2xl text-gray-600 text-lg flex items-start gap-2">
+            <div class="w-4 h-0.5 bg-gray-400 mt-3"></div>
+            <p>
+            I'm Ivan, a Visual Designer living in Munich, and I focus on making digital
+            experiences that are easy to use, enjoyable, and get the job done.
+            </p>
+        </div>
+
+        <!-- Social Links & Button -->
+        <div class="mt-10 flex flex-wrap items-center justify-between gap-4">
+            <!-- Social Links -->
+            <div class="flex gap-6 text-sm font-medium tracking-wide">
+            <a href="#" class="hover:underline flex items-center gap-1">INSTAGRAM <span>↗</span></a>
+            <a href="#" class="hover:underline flex items-center gap-1">BEHANCE <span>↗</span></a>
+            <a href="#" class="hover:underline flex items-center gap-1">DRIBBBLE <span>↗</span></a>
+            </div>
+
+            <!-- Let’s Talk Button -->
+            <a href="#" class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-900 transition">
+            Let’s Talk
+            <span>→</span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ABOUT SECTION =================================================================================== -->
+    <section class="px-6 py-20 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <!-- Gambar -->
+            <img 
+            src="https://avatars.githubusercontent.com/u/114217089?v=4" 
+            alt="About Photo" 
+            class="w-full max-w-sm rounded-2xl shadow-md object-cover"
+            >
+
+            <!-- Konten Teks -->
+            <div class="max-w-xl">
+            <h2 class="text-4xl sm:text-5xl font-black leading-tight text-black mb-6">
+                Design that sparks<br>
+                engagement and<br>
+                inspires action
+            </h2>
+            <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
+                Concentrate on your primary objective which is expanding your business,
+                and leave it to me to ensure that your business is efficiently portrayed in
+                the digital realm and distinguishes itself from the rivals.
+            </p>
+            <a href="#" class="inline-flex items-center gap-2 text-black font-medium hover:underline text-sm sm:text-base">
+                About Me <span>→</span>
+            </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- PROJECT SECTION ===================================================================================== -->
+     <section class="px-6 py-20 max-w-6xl mx-auto">
+        <!-- Title -->
+        <h2 class="text-4xl sm:text-5xl font-black mb-12 text-black">
+            Discover my latest works
+        </h2>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <!-- 1 -->
+            <div>
+            <img src="https://images.unsplash.com/photo-1585247226801-bc613c441316?w=500&auto=format&fit=crop&q=60" class="rounded-xl mb-4" />
+            <div class="flex items-center justify-between">
+                <div>
+                <h3 class="font-medium text-lg text-black">Sportly</h3>
+                <p class="text-sm text-gray-500">Mobile App Design</p>
+                </div>
+                <a href="#" class="text-black border border-gray-300 rounded-full p-2 hover:bg-gray-100 transition">→</a>
+            </div>
+            </div>
+
+            <!-- 2 -->
+            <div>
+            <img src="https://images.unsplash.com/photo-1585247226801-bc613c441316?w=500&auto=format&fit=crop&q=60" class="rounded-xl mb-4" />
+            <div class="flex items-center justify-between">
+                <div>
+                <h3 class="font-medium text-lg text-black">Payrole</h3>
+                <p class="text-sm text-gray-500">Mobile App Design</p>
+                </div>
+                <a href="#" class="text-black border border-gray-300 rounded-full p-2 hover:bg-gray-100 transition">→</a>
+            </div>
+            </div>
+
+            <!-- 3 - Span 2 columns -->
+            <div class="md:col-span-2">
+            <img src="https://images.unsplash.com/photo-1585247226801-bc613c441316?w=1000&auto=format&fit=crop&q=60" class="rounded-xl mb-4 w-full" />
+            <div class="flex items-center justify-between">
+                <div>
+                <h3 class="font-medium text-lg text-black">Wepay</h3>
+                <p class="text-sm text-gray-500">Mobile App Design</p>
+                </div>
+                <a href="#" class="text-black border border-gray-300 rounded-full p-2 hover:bg-gray-100 transition">→</a>
+            </div>
+            </div>
+
+            <!-- 4 -->
+            <div>
+            <img src="https://images.unsplash.com/photo-1585247226801-bc613c441316?w=500&auto=format&fit=crop&q=60" class="rounded-xl mb-4" />
+            <div class="flex items-center justify-between">
+                <div>
+                <h3 class="font-medium text-lg text-black">Estatery</h3>
+                <p class="text-sm text-gray-500">Mobile App Design</p>
+                </div>
+                <a href="#" class="text-black border border-gray-300 rounded-full p-2 hover:bg-gray-100 transition">→</a>
+            </div>
+            </div>
+
+            <!-- 5 -->
+            <div>
+            <img src="https://images.unsplash.com/photo-1585247226801-bc613c441316?w=500&auto=format&fit=crop&q=60" class="rounded-xl mb-4" />
+            <div class="flex items-center justify-between">
+                <div>
+                <h3 class="font-medium text-lg text-black">Sportly</h3>
+                <p class="text-sm text-gray-500">Mobile App Design</p>
+                </div>
+                <a href="#" class="text-black border border-gray-300 rounded-full p-2 hover:bg-gray-100 transition">→</a>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- View All Works -->
+        <div class="mt-12 text-center">
+            <a href="#" class="inline-flex items-center gap-2 text-black text-sm font-medium hover:underline">
+            View All Works <span>→</span>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- POST SECTION ======================================================================================== -->
+     <section class="px-6 py-20 max-w-6xl mx-auto">
+  <!-- Bagian Topik -->
+  <h2 class="text-4xl sm:text-5xl font-black mb-16 text-black">
+    I write about things I deeply care about
+  </h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-32 text-center">
+    <div>
+      <h3 class="font-semibold text-gray-800">Linux & Open Source</h3>
+      <p class="text-sm text-gray-500">Tools, CLI, Customization</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-gray-800">Web Development</h3>
+      <p class="text-sm text-gray-500">PHP, HTML, Tailwind, Vite</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-gray-800 italic">Low-level & C</h3>
+      <p class="text-sm text-gray-500">Memory, Pointers, DIY OS</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-gray-800">Experimental Tech</h3>
+      <p class="text-sm text-gray-500">V Language, Custom Stacks</p>
+    </div>
+  </div>
+
+  <!-- Bagian Post Layout 2 Kolom -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+    <!-- Kiri: Judul -->
+    <div>
+      <h3 class="text-3xl sm:text-4xl font-bold text-black">
+        My Latest Writings
+      </h3>
+    </div>
+
+    <!-- Kanan: List Artikel -->
+<div class="md:col-span-2 space-y-16">
+  <!-- Post 1 -->
+  <div class="flex flex-col gap-3">
+    <a href="#" class="block text-xl font-semibold text-black hover:underline">
+      Getting Started with the V Language
+    </a>
+    <p class="text-gray-600">Pengalaman awal pakai bahasa V untuk bikin CLI tool kecil, plus perbandingannya sama C dan Go.</p>
+    <span class="text-sm text-gray-400 mt-1">May 2025</span>
+  </div>
+
+  <!-- Post 2 -->
+  <div class="flex flex-col gap-3">
+    <a href="#" class="block text-xl font-semibold text-black hover:underline">
+      Linux Setup for Productive Dev Life
+    </a>
+    <p class="text-gray-600">Bahas tool, alias, dan setup terminal buat kerja harian sebagai dev. Full Linux style!</p>
+    <span class="text-sm text-gray-400 mt-1">Apr 2025</span>
+  </div>
+
+  <!-- Post 3 -->
+  <div class="flex flex-col gap-3">
+    <a href="#" class="block text-xl font-semibold text-black hover:underline">
+      Building Web Apps with PHP + Vite + Tailwind
+    </a>
+    <p class="text-gray-600">Breakdown gimana aku bikin frontend modern tanpa ninggalin PHP di backend.</p>
+    <span class="text-sm text-gray-400 mt-1">Apr 2025</span>
+  </div>
+
+  <!-- Post 4 -->
+  <div class="flex flex-col gap-3">
+    <a href="#" class="block text-xl font-semibold text-black hover:underline">
+      Why I Still Love Programming in C
+    </a>
+    <p class="text-gray-600">Ngobrolin alasan aku tetap cinta C meskipun banyak bahasa modern bermunculan.</p>
+    <span class="text-sm text-gray-400 mt-1">Mar 2025</span>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+
 </body>
 </html>
