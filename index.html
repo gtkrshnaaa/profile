@@ -267,7 +267,8 @@
             }
         }
 
-        fetchGitHubData();
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', fetchGitHubData);
     </script>
 
 
