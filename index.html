@@ -6,12 +6,27 @@
     <meta name="theme-color" content="#ffffff">
     <title>Profile</title>
     <script>
-        // Check local storage or system preference
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Initial theme check
+        const theme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (theme === 'dark' || (!theme && systemDark)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // Watch for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                if (typeof updateIcon === 'function') updateIcon();
+            }
+        });
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -95,6 +110,13 @@
         }
 
         updateIcon();
+
+        // Also update icon when system theme changes and no manual preference set
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!localStorage.getItem('theme')) {
+                updateIcon();
+            }
+        });
 
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
