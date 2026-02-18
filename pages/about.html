@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport-meta">
+    <script>
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            document.getElementById('viewport-meta').setAttribute('content', 'width=device-width, initial-scale=0.8');
+            document.documentElement.style.zoom = "80%";
+        }
+    </script>
     <meta name="theme-color" content="#ffffff">
     <title>About | Gilang Teja Krishna - Technology Architect</title>
     <meta name="description" content="Discover the journey of Gilang Teja Krishna, an Indonesian Technology Architect and Software Engineer specializing in Agentic AI and high-performance systems. Winner of the Best Theme Awards in the Artificial Intelligence (T1) at METARISE 2025 and IEEE SMC Special Awards.">

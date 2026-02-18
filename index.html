@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport-meta">
+    <script>
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            document.getElementById('viewport-meta').setAttribute('content', 'width=device-width, initial-scale=0.8');
+            document.documentElement.style.zoom = "80%";
+        }
+    </script>
     <meta name="theme-color" content="#ffffff">
     <title>Gilang Teja Krishna | Technology Architect & Software Engineer</title>
     <meta name="description" content="Official portfolio of Gilang Teja Krishna, a Technology Architect and Software Engineer specializing in Agentic AI, Systems Programming, and High-Performance Architecture. Creator of PAICODE, PyCode, Unnarize, and Vanarize. Winner of METARISE 2025 Best Theme & IEEE SMC Special Awards.">
