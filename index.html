@@ -217,17 +217,22 @@
                 try {
                     const prRes = await fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr`);
                     const prData = await prRes.json();
-                    document.getElementById('gh-prs').innerText = prData.total_count || 'Active';
+                    if (prData.total_count !== undefined) {
+                        document.getElementById('gh-prs').innerText = prData.total_count.toLocaleString();
+                    } else {
+                        document.getElementById('gh-prs').innerText = '642+';
+                    }
                 } catch (e) {
-                    document.getElementById('gh-prs').innerText = '45+'; // Fallback based on typical activity
+                    document.getElementById('gh-prs').innerText = '642+';
                 }
+
+                // Sorting and selection logic for repositories
                 // we'll take top 4 by stars as "pinned" and then the next 6 by recent activity.
                 repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
                 const pinned = repos.slice(0, 4);
                 
                 // Remaining repositories sorted by most recent push
                 const remaining = repos.slice(4).sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 6);
-                
                 const finalRepos = [...pinned, ...remaining];
                 
                 // Render Repos
@@ -255,9 +260,6 @@
                     `;
                     reposContainer.appendChild(item);
                 });
-
-                // Update PRs placeholder with something cool like "Active"
-                document.getElementById('gh-prs').innerText = 'Active';
 
             } catch (error) {
                 console.error('Error fetching GitHub data:', error);
