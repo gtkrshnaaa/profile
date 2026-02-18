@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>About | Gilang Teja Krishna - Digital Artisan</title>
+    <meta name="description" content="Learn more about I Putu Gede Gilang Teja Krishna, a Technology Architect and Software Engineer dedicated to crafting purpose-driven digital solutions.">
+    <meta name="author" content="Gilang Teja Krishna">
+    
+    <!-- Meta Tags remain consistent with home page for SEO -->
+    <script>
+        // Initial theme check
+        const theme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (theme === 'dark' || (!theme && systemDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                if (typeof updateIcon === 'function') updateIcon();
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            transition: background-color 300ms, color 300ms;
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(115,115,115,0.05) 0px, rgba(115,115,115,0.05) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(90deg, rgba(115,115,115,0.05) 0px, rgba(115,115,115,0.05) 1px, transparent 1px, transparent 60px);
+        }
+        .dark body {
+            background-color: #0a0a0a;
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px);
+        }
+        .hero-font {
+            line-height: 1.1;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-neutral-950 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between max-w-6xl mx-auto px-6 py-4 relative dark:text-white transition-colors">
+        <div class="text-lg font-medium">
+            <a href="../index.html" class="hover:opacity-80 transition">
+                <span class="text-neutral-400">gt</span><span class="font-bold text-neutral-950 dark:text-white">krshnaaa.</span>
+            </a>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center border border-neutral-950 dark:border-neutral-500 rounded-full transition hover:bg-neutral-50 dark:hover:bg-neutral-800">
+                <i id="theme-icon" class="uil uil-moon text-xl"></i>
+            </button>
+            <button id="menu-btn" class="w-10 h-10 flex items-center justify-center border border-neutral-950 dark:border-neutral-500 rounded-full transition hover:bg-neutral-50 dark:hover:bg-neutral-800">
+                <i class="uil uil-apps text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div id="dropdown-menu" class="absolute right-6 top-16 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-md rounded-md w-40 hidden z-50 transition-colors">
+            <ul class="flex flex-col text-sm">
+                <li><a href="../index.html" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">Home</a></li>
+                <li><a href="#" class="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 block text-neutral-950 dark:text-white font-bold">About me</a></li>
+                <li><a href="../index.html#github-repos-container" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">Works</a></li>
+                <li><a href="../index.html#insights" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">Insights</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        <!-- Hero Profile -->
+        <section class="mb-24">
+            <div class="flex flex-col md:flex-row gap-12 items-center md:items-start">
+                <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-4 border-neutral-100 dark:border-neutral-800 shadow-xl flex-shrink-0">
+                    <img src="https://avatars.githubusercontent.com/u/114217089?v=4" alt="Gilang Teja Krishna" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-5xl sm:text-7xl font-black text-neutral-950 dark:text-white hero-font mb-4">
+                        I Putu Gede <br> Gilang Teja Krishna
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-neutral-500 dark:text-neutral-400 font-medium max-w-2xl">
+                        A Digital Artisan bridging the gap between <span class="text-neutral-950 dark:text-white">complex architecture</span> and <span class="text-neutral-950 dark:text-white">meaningful impact</span>.
+                    </p>
+                    <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+                        <a href="https://github.com/gtkrshnaaa" target="_blank" class="flex items-center gap-2 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition">
+                            <i class="uil uil-github text-lg"></i>
+                            GitHub Profile
+                        </a>
+                        <a href="mailto:gtkrshnaaa@gmail.com" class="flex items-center gap-2 border border-neutral-950 dark:border-white text-neutral-950 dark:text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-neutral-950 hover:text-white dark:hover:bg-white dark:hover:text-neutral-950 transition">
+                            <i class="uil uil-envelope text-lg"></i>
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Artisan's Bio -->
+        <section class="grid md:grid-cols-3 gap-12 mb-32 border-t border-neutral-100 dark:border-neutral-800 pt-20">
+            <div>
+                <h2 class="text-2xl font-black uppercase tracking-widest text-neutral-400 dark:text-neutral-600 mb-6">The Journey</h2>
+            </div>
+            <div class="md:col-span-2 space-y-8 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+                <p>
+                    From the early days of crafting minimalist experiments to architecting enterprise-grade digital systems, my path has been defined by a relentless pursuit of <strong>Technical Purity</strong>. I don't just write code; I design ecosystems that solve real-world problems with elegance and efficiency.
+                </p>
+                <p>
+                    As a Software Architect, I believe that great systems are like living blueprints—they must be resilient, adaptable, and above all, purpose-driven. This philosophy led me to create the <span class="text-neutral-950 dark:text-white font-bold italic">Artisan Approach</span>, where I treat every line of code as a craft, ensuring that business logic and technical excellence grow in harmony.
+                </p>
+                <p>
+                    My expertise spans from low-level systems programming in C (creating custom memory allocators like <span class="text-neutral-950 dark:text-white font-bold">Mnemosyne</span>) to high-level distributed web architectures using Laravel and Node.js.
+                </p>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="mb-32">
+            <h2 class="text-4xl font-black text-neutral-950 dark:text-white mb-12">Honors & Recognitions</h2>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-3xl border border-neutral-100 dark:border-neutral-800">
+                    <div class="w-12 h-12 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 rounded-full flex items-center justify-center mb-6">
+                        <i class="uil uil-trophy text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-neutral-950 dark:text-white mb-2">Google Solution Challenge Semifinalist</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400">Recognized globally for building innovative technology solutions that address United Nations' Sustainable Development Goals.</p>
+                </div>
+                <div class="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-3xl border border-neutral-100 dark:border-neutral-800">
+                    <div class="w-12 h-12 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 rounded-full flex items-center justify-center mb-6">
+                        <i class="uil uil-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-neutral-950 dark:text-white mb-2">International Innovation Award Winner</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400">Awarded for research and development of sustainable tech infrastructure and digital art verification protocols.</p>
+                </div>
+                <div class="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-3xl border border-neutral-100 dark:border-neutral-800">
+                    <div class="w-12 h-12 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 rounded-full flex items-center justify-center mb-6">
+                        <i class="uil uil-medal text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-neutral-950 dark:text-white mb-2">Top Contributor in Open Source</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400">Maintaining critical community projects with a focus on system performance and developer experience.</p>
+                </div>
+                <div class="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-3xl border border-neutral-100 dark:border-neutral-800">
+                    <div class="w-12 h-12 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 rounded-full flex items-center justify-center mb-6">
+                        <i class="uil uil-star text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-neutral-950 dark:text-white mb-2">Featured Digital Architect</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400">Regularly invited to share insights on the intersection of Stoic philosophy and software engineering at tech summits.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Legacy (Core Projects) -->
+        <section class="mb-32">
+            <h2 class="text-4xl font-black text-neutral-950 dark:text-white mb-12">Technical Legacy</h2>
+            <div class="space-y-4">
+                <div class="group bg-white dark:bg-neutral-900/50 p-10 rounded-3xl border border-neutral-100 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-600 transition duration-500">
+                    <div class="flex flex-col md:flex-row justify-between gap-6">
+                        <div class="max-w-xl">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 block">Systems Programming</span>
+                            <h3 class="text-3xl font-black text-neutral-950 dark:text-white mb-4">Mnemosyne</h3>
+                            <p class="text-neutral-500 dark:text-neutral-400 text-lg">A custom high-performance memory allocator written in C, focusing on zero-fragmentation and extreme speed for system-level operations.</p>
+                        </div>
+                        <div class="flex items-end">
+                            <a href="https://github.com/gtkrshnaaa/mnemosyne" target="_blank" class="w-12 h-12 rounded-full border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-950 dark:text-white hover:bg-neutral-950 hover:text-white dark:hover:bg-white dark:hover:text-neutral-950 transition duration-300">
+                                <i class="uil uil-arrow-up-right text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group bg-white dark:bg-neutral-900/50 p-10 rounded-3xl border border-neutral-100 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-600 transition duration-500">
+                    <div class="flex flex-col md:flex-row justify-between gap-6">
+                        <div class="max-w-xl">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 block">Enterprise Web</span>
+                            <h3 class="text-3xl font-black text-neutral-950 dark:text-white mb-4">Aether</h3>
+                            <p class="text-neutral-500 dark:text-neutral-400 text-lg">A minimalist yet powerful project management application built with Laravel, designed to strip away the noise of traditional tools.</p>
+                        </div>
+                        <div class="flex items-end">
+                            <a href="https://github.com/gtkrshnaaa/aether" target="_blank" class="w-12 h-12 rounded-full border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-950 dark:text-white hover:bg-neutral-950 hover:text-white dark:hover:bg-white dark:hover:text-neutral-950 transition duration-300">
+                                <i class="uil uil-arrow-up-right text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publication Redirect -->
+        <section class="bg-neutral-950 dark:bg-white rounded-[3rem] p-12 md:p-20 text-center text-white dark:text-neutral-950">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 hero-font">Read the manifesto of <br> a Digital Artisan.</h2>
+            <p class="text-lg md:text-xl text-neutral-400 dark:text-neutral-500 max-w-2xl mx-auto mb-12">
+                "Gelar Sang Artisan" is more than a book—it is the culmination of years of engineering philosophy and technical trials.
+            </p>
+            <a href="https://gtkrshnaaa.github.io/gelarsangartisan/" target="_blank" class="inline-flex items-center gap-3 bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white px-10 py-5 rounded-full text-lg font-black hover:scale-105 transition-transform duration-300">
+                Explore the Book
+                <i class="uil uil-external-link-alt"></i>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-100 dark:border-neutral-800 text-center">
+        <p class="text-neutral-400 uppercase tracking-[0.2em] font-bold text-[10px] mb-8">Connect with me</p>
+        <div class="flex justify-center gap-8 mb-12">
+            <a href="https://github.com/gtkrshnaaa" target="_blank" class="text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition text-2xl"><i class="uil uil-github"></i></a>
+            <a href="https://linkedin.com/in/gtkrshnaaa" target="_blank" class="text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition text-2xl"><i class="uil uil-linkedin"></i></a>
+            <a href="https://instagram.com/gtkrshnaaa" target="_blank" class="text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition text-2xl"><i class="uil uil-instagram"></i></a>
+            <a href="https://x.com/gtkrshnaaa" target="_blank" class="text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition text-2xl"><i class="uil uil-twitter"></i></a>
+        </div>
+        <p class="text-sm text-neutral-500">© 2026 I Putu Gede Gilang Teja Krishna. Built with purpose.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        function updateIcon() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.classList.remove('uil-moon');
+                themeIcon.classList.add('uil-sun');
+            } else {
+                themeIcon.classList.remove('uil-sun');
+                themeIcon.classList.add('uil-moon');
+            }
+        }
+        updateIcon();
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            updateIcon();
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
