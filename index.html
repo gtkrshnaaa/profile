@@ -239,7 +239,7 @@
                 reposContainer.innerHTML = '';
                 finalRepos.forEach(repo => {
                     const item = document.createElement('div');
-                    item.className = "flex justify-between items-center py-5 group/row hover:bg-neutral-50 dark:hover:bg-neutral-900 transition cursor-pointer transition-colors border-b border-neutral-100 dark:border-neutral-800 last:border-0";
+                    item.className = "flex justify-between items-center py-4 group/row hover:bg-neutral-50 dark:hover:bg-neutral-900 rounded-xl px-4 -mx-4 transition cursor-pointer transition-colors";
                     item.onclick = () => window.open(repo.html_url, '_blank');
                     
                     item.innerHTML = `
