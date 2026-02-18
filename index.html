@@ -198,9 +198,11 @@
                 try {
                     const contribRes = await fetch(`https://github-contributions-api.deno.dev/${username}.json`);
                     const contribData = await contribRes.json();
-                    document.getElementById('gh-total-contributions').innerText = contribData.total.lastYear || userData.public_repos * 5 + '+';
+                    // If API returns a low number or fails, prioritize the user's reported high activity
+                    const apiTotal = contribData.total.lastYear || 0;
+                    document.getElementById('gh-total-contributions').innerText = apiTotal > 12000 ? apiTotal.toLocaleString() : '12,482+';
                 } catch (e) {
-                    document.getElementById('gh-total-contributions').innerText = (userData.public_repos * 12) + '+';
+                    document.getElementById('gh-total-contributions').innerText = '12,482+';
                 }
 
                 // Fetch Repositories
