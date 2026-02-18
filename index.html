@@ -26,18 +26,20 @@
 </head>
 <style>
     body {
-        @apply bg-white dark:bg-neutral-950 transition-colors duration-300;
+        background-color: #ffffff;
+        transition: background-color 300ms, color 300ms;
         background-image: 
             repeating-linear-gradient(0deg, rgba(115,115,115,0.05) 0px, rgba(115,115,115,0.05) 1px, transparent 1px, transparent 60px),
             repeating-linear-gradient(90deg, rgba(115,115,115,0.05) 0px, rgba(115,115,115,0.05) 1px, transparent 1px, transparent 60px);
     }
     .dark body {
+        background-color: #0a0a0a; /* neutral-950 */
         background-image: 
             repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px),
             repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px);
     }
 </style>
-<body>
+<body class="bg-white dark:bg-neutral-950 transition-colors duration-300">
 
     <!-- Header -->
     <header class="flex items-center justify-between max-w-6xl mx-auto px-6 py-4 relative dark:text-white transition-colors">
