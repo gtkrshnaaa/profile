@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gtkrshnaaa.github.io/sitemap.xml
+Sitemap: https://www.gtkrshnaaa.my.id/sitemap.xml
