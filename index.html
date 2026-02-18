@@ -239,7 +239,7 @@
                 reposContainer.innerHTML = '';
                 finalRepos.forEach(repo => {
                     const item = document.createElement('div');
-                    item.className = "flex justify-between items-center py-5 group hover:bg-neutral-50 dark:hover:bg-neutral-900 transition cursor-pointer transition-colors border-b border-neutral-100 dark:border-neutral-800 last:border-0";
+                    item.className = "flex justify-between items-center py-5 group/row hover:bg-neutral-50 dark:hover:bg-neutral-900 transition cursor-pointer transition-colors border-b border-neutral-100 dark:border-neutral-800 last:border-0";
                     item.onclick = () => window.open(repo.html_url, '_blank');
                     
                     item.innerHTML = `
@@ -254,8 +254,8 @@
                             </div>
                             <p class="text-sm text-neutral-500 dark:text-neutral-400 transition-colors line-clamp-1 max-w-md">${repo.description || 'Open Source Project'}</p>
                         </div>
-                        <a href="${repo.html_url}" target="_blank" class="w-10 h-10 border border-neutral-300 dark:border-neutral-500 rounded-full flex items-center justify-center hover:bg-neutral-950 dark:hover:bg-white hover:text-white dark:hover:text-neutral-950 transition group transition-colors shadow-sm">
-                            <i class="uil uil-arrow-right text-lg transition-transform group-hover:translate-x-1 dark:text-white dark:group-hover:text-neutral-950"></i>
+                        <a href="${repo.html_url}" target="_blank" class="w-10 h-10 border border-neutral-300 dark:border-neutral-500 rounded-full flex items-center justify-center hover:bg-neutral-950 dark:hover:bg-white hover:text-white dark:hover:text-neutral-950 transition group/btn shadow-sm">
+                            <i class="uil uil-arrow-right text-lg transition-transform group-hover/row:translate-x-1 dark:text-white dark:group-hover/btn:text-neutral-950"></i>
                         </a>
                     `;
                     reposContainer.appendChild(item);
