@@ -71,37 +71,49 @@
     <main>
 
         <!-- HERO SECTION ====================================================================================== -->
-        <section class="px-6 py-20 max-w-6xl mx-auto">
-            <!-- Title -->
-            <h1 class="text-3xl sm:text-8xl font-black leading-tight text-black">
-                Architecting some meaningful, purpose driven solutions to 
-                <span class="text-gray-400">empower people and systems.</span>
-            </h1>
-
-            <!-- Description -->
-            <div class="mt-6 max-w-6xl text-gray-600 text-sm sm:text-xl flex items-start gap-2">
-                <div class="w-[40%] h-0.5 bg-gray-100 mt-3 hidden sm:block"></div>
-                <p>
-                I believe great architecture is more than just clean code or scalable infrastructure, it's about creating solutions that are meaningful, efficient, and truly serve the people who use them.
-                </p>
+        <section class="px-6 py-24 sm:py-32 max-w-6xl mx-auto relative overflow-hidden">
+            <!-- Decorative Elements -->
+            <div class="absolute top-0 right-0 -z-10 opacity-10">
+                <i class="uil uil-grid text-[300px] text-gray-500"></i>
             </div>
 
-            <!-- Social Links & Button -->
-            <div class="mt-10 flex flex-wrap items-center justify-between gap-4">
-                <!-- Social Links -->
-                <div class="flex gap-6 text-sm font-medium tracking-wide">
-                    <a href="https://www.instagram.com/gtkrshnaaa" class="hover:underline flex items-center gap-1">INSTAGRAM <span>↗</span></a>
-                    <a href="https://www.linkedin.com/in/gtkrshnaaa" class="hover:underline flex items-center gap-1">LINKEDIN <span>↗</span></a>
-                    <a href="https://github.com/gtkrshnaaa" class="hover:underline flex items-center gap-1">GITHUB <span>↗</span></a>
+            <!-- Title -->
+            <h1 class="text-4xl sm:text-7xl lg:text-8xl font-black leading-[1.1] text-black">
+                Architecting some meaningful, <br class="hidden sm:block">
+                purpose driven solutions to <br class="hidden sm:block">
+                <span class="text-gray-300 transition-colors hover:text-gray-400 cursor-default">empower people and systems.</span>
+            </h1>
+
+            <div class="mt-12 flex flex-col sm:flex-row items-end gap-10">
+                <!-- Description -->
+                <div class="sm:w-2/3 flex items-start gap-4">
+                    <div class="w-20 h-0.5 bg-black mt-3 shrink-0"></div>
+                    <p class="text-gray-600 text-lg sm:text-xl leading-relaxed">
+                        I believe great architecture is more than just clean code or scalable infrastructure, it's about creating solutions that are meaningful, efficient, and truly serve the people who use them.
+                    </p>
                 </div>
 
-                <!-- Let’s Talk Button -->
-                <a href="#" class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-900 transition">
-                    Let’s Talk
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
+                <!-- CTA & Socials -->
+                <div class="w-full sm:w-1/3 flex flex-col items-start sm:items-end gap-8">
+                    <!-- Let’s Talk Button -->
+                    <a href="#" class="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-gray-800 transition transform hover:-translate-y-1 shadow-xl">
+                        Let’s Talk
+                        <i class="uil uil-message text-lg"></i>
+                    </a>
+
+                    <!-- Social Links -->
+                    <div class="flex gap-5 text-gray-400">
+                        <a href="https://www.instagram.com/gtkrshnaaa" class="hover:text-black transition flex items-center gap-1 text-xs font-bold uppercase tracking-tighter">
+                            <i class="uil uil-instagram text-lg"></i> INSTAGRAM
+                        </a>
+                        <a href="https://www.linkedin.com/in/gtkrshnaaa" class="hover:text-black transition flex items-center gap-1 text-xs font-bold uppercase tracking-tighter">
+                            <i class="uil uil-linkedin text-lg"></i> LINKEDIN
+                        </a>
+                        <a href="https://github.com/gtkrshnaaa" class="hover:text-black transition flex items-center gap-1 text-xs font-bold uppercase tracking-tighter">
+                            <i class="uil uil-github text-lg"></i> GITHUB
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
