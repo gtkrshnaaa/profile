@@ -225,9 +225,9 @@
                     const contribData = await contribRes.json();
                     // If API returns a low number or fails, prioritize the user's reported high activity
                     const apiTotal = contribData.total.lastYear || 0;
-                    document.getElementById('gh-total-contributions').innerText = apiTotal > 12000 ? apiTotal.toLocaleString() : '12,482+';
+                    document.getElementById('gh-total-contributions').innerText = apiTotal > 13300 ? apiTotal.toLocaleString() : '13,382+';
                 } catch (e) {
-                    document.getElementById('gh-total-contributions').innerText = '12,482+';
+                    document.getElementById('gh-total-contributions').innerText = '13,382+';
                 }
 
                 // Fetch Repositories
@@ -370,7 +370,7 @@
                     <div class="flex items-center p-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full border border-neutral-200 dark:border-neutral-700 w-full sm:w-auto overflow-hidden">
                         <div class="flex items-center gap-2 px-4 py-2 border-r border-neutral-200 dark:border-neutral-700">
                             <i class="uil uil-history text-lg text-neutral-400"></i>
-                            <span id="gh-total-contributions" class="text-sm font-black text-neutral-950 dark:text-white">12,482+</span>
+                            <span id="gh-total-contributions" class="text-sm font-black text-neutral-950 dark:text-white">13,382+</span>
                         </div>
                         <a href="https://github.com/gtkrshnaaa" target="_blank" class="flex items-center gap-2 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 px-5 py-2 rounded-full text-sm font-bold hover:bg-neutral-800 dark:hover:bg-neutral-100 transition shadow-sm ml-auto">
                             <i class="uil uil-github text-lg"></i>
