@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport-meta">
+    <script>
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            document.getElementById('viewport-meta').setAttribute('content', 'width=device-width, initial-scale=0.8');
+            document.documentElement.style.zoom = "80%";
+        }
+    </script>
+    <meta name="theme-color" content="#ffffff">
+    <title>The Architecture of Sovereignty: Creating Native Languages | Gilang Teja Krishna</title>
+    <meta name="description" content="A deep dive into the engineering philosophy of Gilang Teja Krishna, an Indonesian software architect and programming language creator of Nevaarize and Unnarize.">
+    <meta name="author" content="Gilang Teja Krishna">
+    <meta name="keywords" content="programming language creator from Indonesia, Gilang Teja Krishna, Nevaarize, Unnarize, JIT Compilation, Bytecode VM, System Architecture, Indonesian Tech Artisan, C++23, C Language, Custom Compilers.">
+    
+    <!-- Social Media Tags (Open Graph) -->
+    <meta property="og:title" content="The Architecture of Sovereignty: An Indonesian Artisan’s Path to Language Creation">
+    <meta property="og:description" content="Detailed technical journey of building Nevaarize (JIT) and Unnarize (Bytecode VM) from the ground up.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/114217089?s=400&v=4">
+    <meta property="og:url" content="https://www.gtkrshnaaa.my.id/pages/artisan-of-languages.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Architecture of Sovereignty | Gilang Teja Krishna">
+    <meta name="twitter:description" content="Inside the creation of Nevaarize and Unnarize by an Indonesian systems engineer.">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/114217089?s=400&v=4">
+
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "The Architecture of Sovereignty: An Indonesian Artisan’s Path to Native Language Creation",
+      "description": "An in-depth technical article by Gilang Teja Krishna on building native JIT and Bytecode VM programming languages from Indonesia.",
+      "image": "https://avatars.githubusercontent.com/u/114217089?s=400&v=4",
+      "author": {
+        "@type": "Person",
+        "name": "Gilang Teja Krishna",
+        "url": "https://www.gtkrshnaaa.my.id/pages/about.html"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Gilang Teja Krishna"
+      },
+      "datePublished": "2026-02-19",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.gtkrshnaaa.my.id/pages/artisan-of-languages.html"
+      },
+      "keywords": "programming language creator, Indonesia, JIT compiler, Bytecode VM, Nevaarize, Unnarize"
+    }
+    </script>
+
+    <script>
+        const theme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && systemDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            transition: background-color 300ms, color 300ms;
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(115,115,115,0.05) 0px, rgba(115,115,115,0.05) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(90deg, rgba(115,115,115,0.05) 0px, rgba(115,115,115,0.05) 1px, transparent 1px, transparent 60px);
+        }
+        .dark body {
+            background-color: #0a0a0a;
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 60px);
+        }
+        .artisan-text {
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-neutral-950 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between max-w-6xl mx-auto px-6 py-4 relative dark:text-white transition-colors">
+        <div class="text-lg font-medium">
+            <a href="../index.html" class="hover:opacity-80 transition">
+                <span class="text-neutral-400">gt</span><span class="font-bold text-neutral-950 dark:text-white">krshnaaa.</span>
+            </a>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center border border-neutral-950 dark:border-neutral-500 rounded-full transition hover:bg-neutral-50 dark:hover:bg-neutral-800">
+                <i id="theme-icon" class="uil uil-moon text-xl"></i>
+            </button>
+            <button id="menu-btn" class="w-10 h-10 flex items-center justify-center border border-neutral-950 dark:border-neutral-500 rounded-full transition hover:bg-neutral-50 dark:hover:bg-neutral-800">
+                <i class="uil uil-apps text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div id="dropdown-menu" class="absolute right-6 top-16 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-xl rounded-md w-40 hidden z-50 transition-colors">
+            <ul class="flex flex-col text-sm">
+                <li><a href="../index.html" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">Home</a></li>
+                <li><a href="about.html" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">About me</a></li>
+                <li><a href="../index.html#github-repos-container" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">Works</a></li>
+                <li><a href="../index.html#insights" class="px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 block">Insights</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-24">
+        <article>
+            <!-- Title -->
+            <header class="mb-16">
+                <div class="inline-block px-3 py-1 rounded-full bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+                    Technical Manifesto
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black text-neutral-950 dark:text-white leading-[1.1] tracking-tight mb-8">
+                    The Architecture of Sovereignty: <br>
+                    <span class="text-neutral-400 dark:text-neutral-600">Creating Native Languages from Indonesia.</span>
+                </h1>
+                <div class="flex items-center gap-4 text-neutral-500 dark:text-neutral-500 font-medium">
+                    <span>Gilang Teja Krishna</span>
+                    <span class="w-1 h-1 bg-neutral-300 rounded-full"></span>
+                    <span>February 19, 2026</span>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="artisan-text text-neutral-600 dark:text-neutral-400 space-y-12">
+                <section>
+                    <p>
+                        Software development is often a pursuit of abstractions. We build upon layers of existing foundations, often forgetting what lies beneath. In 2026, as the world moves toward automated generation and high-level orchestrations, I chose to descend. I chose to face the binary reality of the CPU, not as a spectator, but as an architect.
+                    </p>
+                    <p>
+                        From the heart of Indonesia, I have spent the last few years developing two distinct programming languages: <strong>Nevaarize</strong> and <strong>Unnarize</strong>. These are not merely tools; they are manifestos of technical sovereignty. They represent a rejection of the "good enough" approach and a return to the purity of the artisan.
+                    </p>
+                </section>
+
+                <hr class="border-neutral-100 dark:border-neutral-800">
+
+                <section>
+                    <h2 class="text-3xl font-black text-neutral-950 dark:text-white mb-6">Nevaarize: The Native JIT Performance</h2>
+                    <p>
+                        <strong>Nevaarize</strong> was born from a singular obsession: raw performance without compromise. Built using C++23 with a strict zero-dependency philosophy, Nevaarize implements a native Just-In-Time (JIT) compiler that translates Nevaarize scripts directly into x86-64 machine code at runtime.
+                    </p>
+                    <p>
+                        The architecture is designed for the modern silicon. It utilizes SIMD-accelerated lexing to achieve nanosecond-level tokenization and a flattened AST structure to maximize cache efficiency. In my benchmarks, Nevaarize’s dynamic array implementation (Array Push) has demonstrated performance that surpasses even Rust’s `Vec` and Zig’s `ArrayList` in specific workloads, reaching over 780 million operations per second.
+                    </p>
+                    <div class="my-8 p-8 bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-3xl">
+                        <h4 class="text-sm font-black text-neutral-950 dark:text-white uppercase mb-4 tracking-widest">Nevaarize Tech Stack</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><span class="font-bold text-neutral-950 dark:text-white">Compiler:</span> Native x86-64 JIT</li>
+                            <li><span class="font-bold text-neutral-950 dark:text-white">Core:</span> Pure C++23 (Zero Dependencies)</li>
+                            <li><span class="font-bold text-neutral-950 dark:text-white">Memory:</span> Manual management with type specialization</li>
+                            <li><span class="font-bold text-neutral-950 dark:text-white">Naming:</span> Strict No-Underscore Policy</li>
+                        </ul>
+                        <a href="https://nevaarize.gtkrshnaaa.my.id/" target="_blank" class="mt-6 inline-flex items-center gap-2 text-neutral-950 dark:text-white font-bold hover:underline group">
+                            Explore Nevaarize Documentation <i class="uil uil-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-black text-neutral-950 dark:text-white mb-6">Unnarize: The Resilient Bytecode VM</h2>
+                    <p>
+                        While Nevaarize focuses on the edge of performance, <strong>Unnarize</strong> focuses on the resilience of systems. Developed in pure C, Unnarize is a high-performance embedded scripting language featuring a sophisticated <strong>"Gapless" Generational Garbage Collector</strong>.
+                    </p>
+                    <p>
+                        Unnarize is built for long-running services. It separates objects into a fast-paced Nursery and a stable Old Generation, utilizing concurrent marking and parallel sweeping to eliminate "Stop-The-World" pauses. Furthermore, it brings native Async/Await support to the embedded level, allowing for scalable I/O and event-driven architectures without the overhead of heavy runtimes.
+                    </p>
+                    <div class="my-8 p-8 bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-3xl">
+                        <h4 class="text-sm font-black text-neutral-950 dark:text-white uppercase mb-4 tracking-widest">Unnarize Core Architecture</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><span class="font-bold text-neutral-950 dark:text-white">VM:</span> Bytecode Interpreter with Computed Goto Dispatch</li>
+                            <li><span class="font-bold text-neutral-950 dark:text-white">GC:</span> Generational, Concurrent, Parallel Sweeping</li>
+                            <li><span class="font-bold text-neutral-950 dark:text-white">Concurrency:</span> Native Async/Await & Event Loop</li>
+                            <li><span class="font-bold text-neutral-950 dark:text-white">Design:</span> Pure C (pthreads + standard libc)</li>
+                        </ul>
+                        <a href="https://unnarize.gtkrshnaaa.my.id/" target="_blank" class="mt-6 inline-flex items-center gap-2 text-neutral-950 dark:text-white font-bold hover:underline group">
+                            Explore Unnarize Documentation <i class="uil uil-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-black text-neutral-950 dark:text-white mb-6">An Intellectual Legacy from Indonesia</h2>
+                    <p>
+                        My work as a <strong>programming language creator from Indonesia</strong> is driven by a desire to contribute to the global technical landscape from a position of intellectual strength. In Indonesia, we are often consumers of technology; through Nevaarize and Unnarize, I aim to be a contributor. 
+                    </p>
+                    <p>
+                        Developing a language is not just about syntax. It is about memory layouts, register allocations, garbage collection algorithms, and the bridge between human intention and silicon execution. It is the ultimate challenge for any software artisan.
+                    </p>
+                    <p>
+                        The journey continues. I am not just building tools; I am building a legacy of excellence and sovereignty.
+                    </p>
+                </section>
+
+                <section class="pt-12 text-center">
+                    <div class="inline-block glass p-10 rounded-[3rem] border border-neutral-200 dark:border-neutral-800">
+                        <p class="text-sm text-neutral-500 dark:text-neutral-500 italic mb-4">"Technical purity is the only path to meaningful sovereignty."</p>
+                        <p class="font-bold text-neutral-950 dark:text-white">Gilang Teja Krishna</p>
+                        <p class="text-xs text-neutral-400">Digital Artisan & Systems Architect</p>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-100 dark:border-neutral-800 text-center">
+        <p class="text-neutral-400 uppercase tracking-[0.2em] font-bold text-[10px] mb-8">Next Steps</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6 text-sm text-neutral-950 dark:text-white uppercase tracking-wide mb-12">
+            <a href="../index.html" class="hover:underline">Home</a>
+            <a href="about.html" class="hover:underline">About me</a>
+            <a href="mailto:hello.gtkrshnaaa@gmail.com" class="hover:underline">Collaboration</a>
+        </div>
+        <p class="text-sm text-neutral-500">© 2026 Gilang Teja Krishna. Built with purpose.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        function updateIcon() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.classList.remove('uil-moon');
+                themeIcon.classList.add('uil-sun');
+            } else {
+                themeIcon.classList.remove('uil-sun');
+                themeIcon.classList.add('uil-moon');
+            }
+        }
+        updateIcon();
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            updateIcon();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
